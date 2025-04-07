@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addItem, removeItem, updateQuantity } from './CartSlice';
+import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
@@ -25,7 +25,7 @@ const CartItem = ({ onContinueShopping }) => {
    onContinueShopping(e);
   };
 
-const handleCheckoutShopping = (e) => {
+  const handleCheckoutShopping = (e) => {
   alert('Functionality to be added for future reference');
 };
 
@@ -39,20 +39,20 @@ const handleCheckoutShopping = (e) => {
     }
 
     else{
-        dispatch(removeItem);
+        dispatch(removeItem({name: item.name}));
     }
   };
 
   const handleRemove = (item) => {
-    dispatch(removeItem);
+    dispatch(removeItem({name: item.name}));
   };
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
-let totalCost = 0;
-let cPrice = parseFloat(item.cost.substring(1));
+    let totalCost = 0;
+    let cPrice = parseFloat(item.cost.substring(1));
 
-totalCost = cPrice * item.quantity;
+    totalCost = cPrice * item.quantity;
   };
 
   return (
