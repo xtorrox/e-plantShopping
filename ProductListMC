@@ -235,14 +235,14 @@ function ProductList({ onHomeClick }) {
         fontSize: '30px',
         textDecoration: 'none',
     }
-};
 
     const handleAddToCart = (product) => {
         dispatch(addItem(product));
         setAddedToCart((prevState) => ({
         ...prevState,
         [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
-    }));
+        }));
+    };
 
     const handleHomeClick = (e) => {
         e.preventDefault();
@@ -253,6 +253,7 @@ function ProductList({ onHomeClick }) {
         e.preventDefault();
         setShowCart(true); // Set showCart to true when cart icon is clicked
     };
+
     const handlePlantsClick = (e) => {
         e.preventDefault();
         setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
@@ -263,6 +264,7 @@ function ProductList({ onHomeClick }) {
         e.preventDefault();
         setShowCart(false);
     };
+
     return (
         <div>
             <div className="navbar" style={styleObj}>
